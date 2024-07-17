@@ -15,6 +15,7 @@ struct Drawing: Identifiable, Equatable {
 }
 
 struct TestTwoView: View {
+    @ObservedObject var mainTestViewModel: MainTestViewModel
     @Binding var isCheck: Bool
     @Binding var choosenAnswer: String
     var question: TestLevelOneModel
@@ -125,6 +126,11 @@ struct TestTwoView: View {
                 Spacer()
             }
         }
+        .onChange(of: indexAnswer) { newValue in
+            if newValue != 0 {
+                mainTestViewModel.addTime()
+            }
+        }
         .onChange(of: question) { newValue in
             indexAnswer = 0
             allowHit = true
@@ -164,6 +170,7 @@ struct TestTwoView: View {
                 allowHit = false
                 indexAnswer += 1
                 isCheck = false
+                mainTestViewModel.stopCountdown()
             }
         } else {
             triggerImpactFeedback()

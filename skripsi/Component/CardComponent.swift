@@ -10,79 +10,95 @@ import SwiftUI
 struct TitleCardsMainView: View {
     var title: String
     var textBody: String
-    var rectangleColor: Color
 
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 12) {
-                HStack(alignment: .center) {
-                    Text(title)
-                        .font(.headline)
-                    Spacer()
-                    
-                }
-                
-                HStack {
-                    Text(textBody)
-                        .font(.body)
-                    Spacer()
-                }
+                Text(title)
+                Text(textBody)
+                    .bold()
             }
-            .foregroundColor(.white)
             .padding()
-
+            
             Spacer()
         }
+        .foregroundColor(.white)
+        .frame(maxWidth: .infinity)
         .background {
-            Rectangle()
-                .fill(rectangleColor)
-                .cornerRadius(12)
-                .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.color74C4F4)
+                .shadow(color: .color4FA9E0, radius: 0, x: 0, y: 3)
+                
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.color74C4F4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(.color4FA9E0, lineWidth: 1)
+                    )
+            }
+            .padding(1)
         }
     }
 }
 
 struct SectionCardsMainView: View {
+    let title: String
     var content: String
-    var rectangleBackgroundColor = Color(.systemGray4)
+    var rectangleBackgroundColor = Color(.buttonBlue)
 
     var body: some View {
-        HStack(spacing: 16) {
-            HStack {
-                if content.count > 5 {
-                    ForEach(Array(content), id: \.self) {char in
-                        if char != " " {
-                            if "HSP".contains(char) {
-                                Text(String(char))
-                                    .font(.custom("HanacarakaNormal", size: 26))
-                                    .padding(.trailing)
-                            } else {
-                                Image("\(char)")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 26)
+        HStack {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(title)
+                    .font(.system(size: 12, weight: .regular))
+                
+                HStack {
+                    if content.count > 5 {
+                        ForEach(Array(content), id: \.self) {char in
+                            if char != " " {
+                                if "HSP".contains(char) {
+                                    Text(String(char))
+                                        .font(.custom("HanacarakaNormal", size: 26))
+                                        .padding(.trailing)
+                                } else {
+                                    Image("\(char)")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 26)
+                                }
                             }
                         }
+                    } else {
+                        Text(content)
+                            .font(.custom("HanacarakaNormal", size: 26))
                     }
-                } else {
-                    Text(content)
-                        .font(.custom("HanacarakaNormal", size: 26))
                 }
+            }
+            
+            Spacer()
+            Image(systemName: "chevron.right")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 26)
+        }
+        .foregroundColor(.black)
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.color74C4F4)
+                .shadow(color: .gray, radius: 0, x: 0, y: 3)
                 
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 26)
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(.gray, lineWidth: 1)
+                    )
             }
-            .foregroundColor(.white)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background {
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(rectangleBackgroundColor)
-                    .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
-            }
+            .padding(1)
         }
     }
 }
@@ -97,7 +113,7 @@ extension SectionCardsMainView {
 
 struct SandhanganCardsMainView: View {
     var content: String
-    var rectangleBackgroundColor = Color(.systemGray4)
+    var rectangleBackgroundColor = Color(.buttonBlue)
 
     var body: some View {
         HStack(spacing: 16) {
@@ -110,13 +126,23 @@ struct SandhanganCardsMainView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 26)
             }
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .padding()
             .frame(maxWidth: .infinity)
             .background {
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(rectangleBackgroundColor)
-                    .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.color74C4F4)
+                    .shadow(color: .gray, radius: 0, x: 0, y: 3)
+                    
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.gray, lineWidth: 1)
+                        )
+                }
+                .padding(1)
             }
         }
     }
@@ -141,16 +167,16 @@ struct InfoSectionCards: View {
                 playSound(name: char.name.capitalized)
             }, label: {
                 ZStack {
-                    ZStack(alignment: .bottomTrailing) {
+                    ZStack(alignment: .topLeading) {
                         RoundedRectangle(cornerRadius: 10)
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(.customBlue)
-                            .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
+//                            .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
                         
                         Image(systemName: "speaker.wave.2")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 20)
+                            .frame(width: 12)
                             .foregroundColor(.white)
                             .padding(8)
                     }
@@ -178,6 +204,7 @@ struct InfoSectionCards: View {
                             .font(.custom("HanacarakaNormal", size: char.characterString.count == 1 ? 45 : char.characterString.count == 2 ? 37 : 30))
                             .foregroundColor(.white)
                             .padding(.trailing, 8)
+                            .padding(.top, 8)
                     }
                 }
                 .frame(width: 100)
@@ -186,11 +213,13 @@ struct InfoSectionCards: View {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(char.name)
-                        .bold()
+                        .font(.system(size: 15, weight: .bold))
+                        .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
                     if section > 4 && ((char.example?.isEmpty) != nil) {
                         VStack(spacing: 16) {
                             HStack {
                                 Text("\(char.description) :")
+                                    .font(.system(size: 15, weight: .regular))
                                 Spacer()
                             }
                             HStack {
@@ -200,7 +229,8 @@ struct InfoSectionCards: View {
                             }
                         }
                     } else {
-                        Text("seperti dalam kata “\(Text(char.description).bold())”")
+                        Text("Seperti dalam kata “\(Text(char.description).bold())”")
+                            .font(.system(size: 15))
                     }
                 }
                 .padding()
@@ -213,10 +243,8 @@ struct InfoSectionCards: View {
 }
 
 #Preview {
-    SectionCardsMainView(content: "H    N    C    R     K")
-//    TitleCardsMainView(title: "Carakan 1", textBody: "Belajar aksara jawa dasar yang memiliki vokal \"a\"") {
-//        
-//    }
+//    SectionCardsMainView(title: "Carakan I Bagian 1", content: "H    N    C    R     K")
+    TitleCardsMainView(title: "Carakan 1", textBody: "Belajar aksara jawa dasar yang memiliki vokal \"a\"")
 //    InfoSectionCards(section: 1, aksara: "\\", name: "ha", description: "arek")
 }
 

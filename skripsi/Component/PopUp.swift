@@ -12,6 +12,8 @@ struct PopUpFailed: View {
     @Binding var isFailed: Bool
     @Binding var choosenAnswer: String
     @Binding var isCheck: Bool
+    @Binding var questionIndex: Int
+    let questionCount: Int
     
     @State var isMoved = false
     
@@ -47,6 +49,7 @@ struct PopUpFailed: View {
                                 
                                 choosenAnswer = ""
                                 isCheck = true
+                                questionIndex = questionIndex + 1
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     isFailed = false
@@ -97,6 +100,8 @@ struct PopUpTrue: View {
     @Binding var isCheck: Bool
     @Binding var questionIndex: Int
     @Binding var testDone: Bool
+    @Binding var percentage: Double
+    let questionCount: Int
     
     @State var isMoved = false
     
@@ -135,9 +140,10 @@ struct PopUpTrue: View {
                                     choosenAnswer = ""
                                     isCheck = true
                                     
-                                    if questionIndex + 1 < 7 {
+                                    if questionIndex + 1 < questionCount {
                                         questionIndex = questionIndex + 1
                                     } else {
+                                        percentage = Double(7) / Double(questionCount) * 100
                                         testDone = true
                                     }
                                 }

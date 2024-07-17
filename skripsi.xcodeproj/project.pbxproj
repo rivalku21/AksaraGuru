@@ -40,6 +40,8 @@
 		4661A99A2B3A902D0096D990 /* HANACARAKA.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4661A9992B3A902D0096D990 /* HANACARAKA.TTF */; };
 		469A81FD2B74B53800368F73 /* MyObjectDetector3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 469A81FC2B74B53800368F73 /* MyObjectDetector3.mlmodel */; };
 		46A1EFBE2B7394E50044CEFF /* TestTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A1EFBD2B7394E50044CEFF /* TestTwoViewModel.swift */; };
+		46AD87EE2C38444C001605C8 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46AD87ED2C38444C001605C8 /* SF-Pro-Rounded-Regular.otf */; };
+		46AD87F02C384527001605C8 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46AD87EF2C384527001605C8 /* SF-Pro-Rounded-Bold.otf */; };
 		46BF9D632B590D6A00FD2FFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF9D622B590D6A00FD2FFA /* MainViewModel.swift */; };
 		46BF9D652B590DE000FD2FFA /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF9D642B590DE000FD2FFA /* InfoViewModel.swift */; };
 		46BF9D692B592E3000FD2FFA /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 46BF9D682B592E3000FD2FFA /* level1.json */; };
@@ -106,6 +108,8 @@
 		4661A9992B3A902D0096D990 /* HANACARAKA.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = HANACARAKA.TTF; sourceTree = "<group>"; };
 		469A81FC2B74B53800368F73 /* MyObjectDetector3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyObjectDetector3.mlmodel; sourceTree = "<group>"; };
 		46A1EFBD2B7394E50044CEFF /* TestTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTwoViewModel.swift; sourceTree = "<group>"; };
+		46AD87ED2C38444C001605C8 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		46AD87EF2C384527001605C8 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		46BF9D622B590D6A00FD2FFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		46BF9D642B590DE000FD2FFA /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		46BF9D682B592E3000FD2FFA /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 		4661A98C2B398BA30096D990 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				46AD87EF2C384527001605C8 /* SF-Pro-Rounded-Bold.otf */,
+				46AD87ED2C38444C001605C8 /* SF-Pro-Rounded-Regular.otf */,
 				4661A9992B3A902D0096D990 /* HANACARAKA.TTF */,
 			);
 			path = Font;
@@ -439,6 +445,7 @@
 				46E0A11E2B6114CA00A15039 /* Sa.m4a in Resources */,
 				46E0A1312B6116F000A15039 /* Ga.m4a in Resources */,
 				46E0A1332B6116F000A15039 /* Nya.m4a in Resources */,
+				46AD87F02C384527001605C8 /* SF-Pro-Rounded-Bold.otf in Resources */,
 				4661A97A2B398A4A0096D990 /* Preview Assets.xcassets in Resources */,
 				46E0A1302B6116F000A15039 /* Ma.m4a in Resources */,
 				4661A9772B398A4A0096D990 /* Assets.xcassets in Resources */,
@@ -457,6 +464,7 @@
 				46E0A12F2B6116F000A15039 /* Nga.m4a in Resources */,
 				46E0A1132B61135200A15039 /* Na.m4a in Resources */,
 				46BF9D692B592E3000FD2FFA /* level1.json in Resources */,
+				46AD87EE2C38444C001605C8 /* SF-Pro-Rounded-Regular.otf in Resources */,
 				46E0A1162B61135300A15039 /* Ha.m4a in Resources */,
 				46E0A12B2B6116F000A15039 /* Dha.m4a in Resources */,
 				4661A99A2B3A902D0096D990 /* HANACARAKA.TTF in Resources */,

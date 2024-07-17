@@ -11,10 +11,13 @@ import AVFoundation
 var player: AVAudioPlayer?
 
 func playSound(name: String) {
-    let url = Bundle.main.url(forResource: name, withExtension: "m4a")
     do {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "m4a") else {
+            return
+        }
+        
         try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-        player = try AVAudioPlayer(contentsOf: url!, fileTypeHint: AVFileType.mp3.rawValue)
+        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
         player!.play()
     } catch let error {
         print(error.localizedDescription)

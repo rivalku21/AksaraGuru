@@ -16,6 +16,8 @@ struct ResultView: View {
     
     @Binding var timerMode: TimerMode
     @Binding var timeElapsed: TimeInterval
+    let totalQuestion: Int
+    let percentage: Int
     
     var body: some View {
         GeometryReader { geometry in
@@ -38,21 +40,46 @@ struct ResultView: View {
                     
                     HStack {
                         Image(systemName: "timer")
-                        Text("Waktu    ")
-                            .frame(width: geometry.size.width * 0.2)
+                        Text("Waktu")
                             .multilineTextAlignment(.leading)
-                        Text(": \(timeElapsed.formattedSeconds())")
                         
                         Spacer()
                     }
                     .padding(.top)
                     
                     HStack {
-                        Image(systemName: "checkmark.circle")
+                        Text("\(timeElapsed.formattedSeconds())")
+                        
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    
+                    HStack {
+                        Image(systemName: "book.circle")
                         Text("Aktivitas")
-                            .frame(width: geometry.size.width * 0.2)
                             .multilineTextAlignment(.leading)
-                        Text(": 7 Aktivitas berhasil")
+                        
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text("\(totalQuestion) Aktivitas")
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    
+                    HStack {
+                        Image(systemName: "percent")
+                        Text("Keberhasilan")
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text("\(percentage)%")
                         
                         Spacer()
                     }

@@ -24,44 +24,34 @@ struct InfoView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 16) {
-                HStack {
-                    Text(arrayAksara?.title ?? "")
-                        .font(.title2)
-                    Spacer()
-//                    Image(systemName: "heart.fill")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: geometry.size.width * 0.05)
-//                        .foregroundColor(.red)
-//                    Text("5")
-//                        .foregroundColor(.red)
-                }
+                Text(arrayAksara?.title ?? "")
+                    .font(.system(size: 20, weight: .bold))
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
                         Text(arrayAksara?.description ?? "")
                             .lineSpacing(8)
-                            .font(.body)
+                            .font(.system(size: 15, weight: .regular))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         if arrayAksara?.description2 != "" {
                             Text(arrayAksara?.description2 ?? "")
                                 .lineSpacing(8)
-                                .font(.body)
+                                .font(.system(size: 15, weight: .regular))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         
                         if arrayAksara?.note != "" {
                             Text(arrayAksara?.note ?? "")
                                 .lineSpacing(8)
-                                .font(.body)
+                                .font(.system(size: 15, weight: .regular))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         
                         if arrayAksara?.note2 != "" {
                             Text(arrayAksara?.note2 ?? "")
                                 .lineSpacing(8)
-                                .font(.body)
+                                .font(.system(size: 15, weight: .regular))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         
@@ -79,7 +69,10 @@ struct InfoView: View {
                         .background {
                             RoundedRectangle(cornerRadius: 12)
                                 .foregroundColor(.customBlue)
-                                .shadow(color: Color.black.opacity(0.15), radius: 2, x: 2, y: 2)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.buttonBlue, lineWidth: 3)
+                                )
                         }
                 }
             }

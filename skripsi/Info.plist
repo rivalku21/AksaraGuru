@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>HANACARAKA.TTF</string>
+		<string>SF-Pro-Rounded-Regular.otf</string>
+		<string>SF-Pro-Rounded-Bold.otf</string>
 	</array>
 </dict>
 </plist>

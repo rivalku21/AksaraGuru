@@ -13,9 +13,8 @@ struct skripsiApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ContentView()
             MainView()
-//            InfoView(aksara: "mgbqz")
+                .environment(\.customFont, .custom("SFProRounded-Regular", size: 16))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

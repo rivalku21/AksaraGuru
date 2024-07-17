@@ -23,4 +23,27 @@ extension View {
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
     }
+    
+    func customFont() -> some View {
+        self.modifier(CustomFontModifier())
+    }
+}
+
+struct CustomFontKey: EnvironmentKey {
+    static let defaultValue: Font = .custom("SFProRounded-Regular", size: 16)
+}
+
+extension EnvironmentValues {
+    var customFont: Font {
+        get { self[CustomFontKey.self] }
+        set { self[CustomFontKey.self] = newValue }
+    }
+}
+
+struct CustomFontModifier: ViewModifier {
+    @Environment(\.customFont) var customFont
+
+    func body(content: Content) -> some View {
+        content.font(customFont)
+    }
 }
